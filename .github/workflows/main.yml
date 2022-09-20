@@ -35,8 +35,8 @@ jobs:
           node-version: ${{ matrix.node-version}}
       
       #instalando as dependencias 
-      - run: npm install and build
+      - run: npm install and ng build
       
       # execultar ng build
-      - run: npm ng build
+      - run: ng build
       
