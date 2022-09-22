@@ -1,11 +1,20 @@
-<div *ngFor="let item of receipt">
-  <p>
-    {{ item.data }}
-  </p>
-  <p>
-    {{ item.valor }}
-  </p>
-  <p>
-    {{ item.destino }}
-  </p>
-</div>
+<section class="container">
+  <h2 class="titulo">Transferências</h2>
+  <table class="tabela">
+    <thead class="tabela__cabecalho">
+      <th class="tabela__cabecalho__conteudo">Data</th>
+      <th class="tabela__cabecalho__conteudo">Valor</th>
+      <th class="tabela__cabecalho__conteudo">Destino</th>
+    </thead>
+    <tbody *ngIf="receipt.length > 0; else listEmpty">
+      <tr class="tabela__linha" *ngFor="let item of receipt">
+        <td class="tabela__conteudo">{{ item.data | date: "shortDate" }}</td>
+        <td class="tabela__conteudo">{{ item.valor | currency }}</td>
+        <td class="tabela__conteudo">{{ item.destino }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template class="list-empty" #listEmpty>
+    <p>Nemnhuma operação cadastrada</p>
+  </ng-template>
+</section>

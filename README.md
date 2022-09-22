@@ -1,5 +1,19 @@
 # study_angular
 
+## Padrões de commit
+
+Todos os commits do projeto devem seguir o padrão definido pelo Conventional Commits, de acordo com
+seu tipo, escopo de aplicação e comentarios: ex
+
+```js
+<type>(<scope>): <short summary>
+```
+
+Link da lib:
+https://www.npmjs.com/package/git-commit-msg-linter
+Link da doc:
+https://www.conventionalcommits.org/en/v1.0.0/
+
 ## Comando para gerar project
 
 ```ts
@@ -59,4 +73,14 @@ this.toTransfer.emit(VALUE);
 
 ```html
 <app-extract [transfer]="transferetion"></app-extract>
+```
+
+## Adicionando providers de data
+
+```ts
+  https://angular.io/api/common/DatePipe
+```
+
+```ts
+  https://angular.io/api/core/LOCALE_ID
 ```
