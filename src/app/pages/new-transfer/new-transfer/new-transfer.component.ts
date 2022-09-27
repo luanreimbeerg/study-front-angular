@@ -1,5 +1,13 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { FormErrorMixin } from './../../../shared/mixins/form-error.mixin';
+import { MixinHandler } from '../../../shared/mixins/mixin-handler';
+
+interface transfer {
+  value: string;
+  fate: string;
+}
 @Component({
   selector: 'app-new-transfer',
   templateUrl: './new-transfer.component.html',
@@ -8,16 +16,38 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class NewTransferComponent implements OnInit {
   @Output() toTransfer = new EventEmitter<any>();
 
-  public valor!: string;
-  public destino!: string;
+  public form!: FormGroup;
+  public transfer!: transfer;
 
-  constructor() {}
+  public hasError!: (
+    controlName: string,
+    errorName: string,
+    loginForm: FormGroup
+  ) => false;
 
-  ngOnInit(): void {}
+  constructor(private fb: FormBuilder) {}
 
-  public transfer(): void {
-    console.log(this.valor, this.destino);
+  ngOnInit(): void {
+    MixinHandler.applyMixins(NewTransferComponent, [FormErrorMixin]);
+    this.buildForm();
+  }
 
-    this.toTransfer.emit({ valor: this.valor, destino: this.destino });
+  private buildForm(): void {
+    this.form = this.fb.group({
+      value: ['', Validators.required],
+      fate: ['', Validators.required],
+    });
+  }
+
+  public onSubmit(form: any): void {
+    this.transfer = {
+      value: this.form.get('value')?.value,
+      fate: this.form.get('fate')?.value,
+    };
+
+    console.log(this.transfer);
+    // console.log(this.valor, this.destino);
+
+    this.toTransfer.emit(this.transfer);
   }
 }

@@ -1,61 +1,48 @@
-.formulario {
-  background-color: white;
-  padding: 16px;
-  border-radius: 4px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  padding: 12px;
+.new-transfer {
+  max-width: 25rem;
+  padding: 1.875rem;
+  margin: 0 auto;
 
-  &__titulo {
-    text-transform: capitalize;
-    color: var(--secondary);
-  }
-}
+  form {
+    background-color: rgb(111, 165, 31);
+    padding: 1rem;
+    border-radius: .25rem;
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.1);
+    padding: .75rem;
 
-.form-field {
-  width: 100%;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: column;
-  color: var(--secondary);
-
-  &__label {
-    color: inherit;
-    margin-bottom: 4px;
-    font-size: 12px;
+    .title {
+      text-transform: capitalize;
+      color: var(--secondary);
+    }
   }
 
-  &__input {
-    padding: 8px;
-    border-radius: 4px;
-    color: inherit;
-    border: 2px solid;
-    outline: none;
+  .custom-form-field {
+    width: 100%;
   }
-}
 
-.botao-wrapper {
-  display: flex;
-}
+  .botao-wrapper {
+    display: flex;
+  }
 
-.botao {
-  background-color: var(--secondary);
-  color: white;
-  display: block;
-  flex: 1;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  padding: 0.5em;
-  cursor: pointer;
-  transition: opacity 0.2s;
-
-  &--cancelar {
+  .botao {
     background-color: var(--secondary);
-    margin-left: 20px;
-  }
+    color: white;
+    display: block;
+    flex: 1;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 0.5em;
+    cursor: pointer;
+    transition: opacity 0.2s;
 
-  &:hover {
-    opacity: 0.8;
+    &--cancelar {
+      background-color: var(--secondary);
+      margin-left: 20px;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 }
